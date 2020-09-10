@@ -1,0 +1,125 @@
+<page-header class="aaaa" [title]="'车站基础设施监测系统'"></page-header>
+<div>
+  <div nz-row>
+    <div nz-col nzSpan="7">
+      <div class="bigdata-analysis">
+        <h2>大数据统计分析</h2>
+        <div nz-row>
+          <div nz-col nzSpan="8">
+            <number-info [subTitle]="'今日检查'" [total]="'159'"></number-info>
+          </div>
+          <div nz-col nzSpan="8">
+            <number-info [subTitle]="'健康设备'" [total]="'296'"></number-info>
+          </div>
+          <div nz-col nzSpan="8">
+            <number-info [subTitle]="'设备总数'" [total]="'298'"></number-info>
+          </div>
+        </div>
+      </div>
+      <div class="infra-health">
+        <h2>基础设施健康状态</h2>
+        <div nz-row class="health-check-num-wrapper">
+          <div nz-col nzSpan="12">本月检测设备数</div>
+          <div nz-col nzSpan="12">90/666</div>
+        </div>
+        <div nz-row class="health-check-num-wrapper">
+          <div nz-col nzSpan="12">
+            <div nz-row>
+              <div nz-col nzSpan="12">电梯</div>
+              <div nz-col nzSpan="12">68/317</div>
+            </div>
+          </div>
+          <div nz-col nzSpan="12">
+            <div nz-row>
+              <div nz-col nzSpan="12">屏蔽门</div>
+              <div nz-col nzSpan="12">26/209</div>
+            </div>
+          </div>
+        </div>
+        <h4>健康状态</h4>
+        <g2-pie
+          [hasLegend]="false"
+          subTitle="75%"
+          [total]="total"
+          [valueFormat]="format"
+          [data]="salesPieData"
+          height="100"
+          (clickItem)="handlePieClick($event)"
+        ></g2-pie>
+      </div>
+    </div>
+    <div nz-col nzSpan="10" class="correlation-analysis">col-12</div>
+    <div nz-col nzSpan="7">
+      <div class="realtime-notice">
+        <h2 class="title-right">实时公告通知</h2>
+        <p>自动售票机异常状态预警</p>
+      </div>
+      <div class="avg-fail">
+        <h2>不同设备发生的平均故障数</h2>
+        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap" [height]="300"></g2-timeline>
+      </div>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="6" class="infra-fail-analysis">
+      <h2>基础设施故障预测分析</h2>
+      <div nz-row>
+        <div nz-col class="infra-title-wrapper" nzSpan="3">
+          <i nz-icon class="infra-icon" nzType="insert-row-left" nzTheme="outline"></i>
+          <p>电梯</p>
+        </div>
+        <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="9" contentHeight="24px">
+        </g2-card>
+        <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="8" contentHeight="24px">
+        </g2-card>
+        <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="1" contentHeight="24px">
+        </g2-card>
+      </div>
+      <div nz-row>
+        <div nz-col class="infra-title-wrapper" nzSpan="3">
+          <i nz-icon class="infra-icon" nzType="bank" nzTheme="outline"></i>
+          <p>屏蔽门</p>
+        </div>
+        <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="18" contentHeight="24px">
+        </g2-card>
+        <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="18" contentHeight="24px">
+        </g2-card>
+        <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="0" contentHeight="24px">
+        </g2-card>
+      </div>
+    </div>
+    <div nz-col nzSpan="6" class="ecalator-fail-analysis">
+      <h2>自动电扶梯故障类别分类统计</h2>
+      <g2-custom delay="100" (render)="renderPie($event)"></g2-custom>
+    </div>
+    <div nz-col nzSpan="6" class="frequently-fail-analysis">
+      <h2>高发故障</h2>
+      <g2-tag-cloud [data]="tags" height="200" (clickItem)="handleTagClick($event)"></g2-tag-cloud>
+    </div>
+    <div nz-col nzSpan="6" class="equipment-fail-forecast">
+      <h2>设备异常状态预测</h2>
+      <div
+        nz-row
+        [nzType]="'flex'"
+        [nzJustify]="'center'"
+        [nzAlign]="'middle'"
+        class="py-sm bg-grey-lighter-h point"
+      >
+        <div nz-col [nzSpan]="4" class="text-center">
+          可靠度
+        </div>
+        <div nz-col [nzSpan]="20">
+          <g2-single-bar class="single-bar" height="24" [value]="121" [max]="300" [plusColor]="'red'"></g2-single-bar>
+          <g2-single-bar class="single-bar" height="24" [value]="168" [max]="300"></g2-single-bar>
+        </div>
+        <div nz-col [nzSpan]="4" class="text-center">
+          剩余寿命
+        </div>
+        <div nz-col [nzSpan]="20">
+          <g2-single-bar class="single-bar" height="24" [value]="101" [max]="300" [plusColor]="'red'"></g2-single-bar>
+          <g2-single-bar class="single-bar" height="24" [value]="118" [max]="300"></g2-single-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
