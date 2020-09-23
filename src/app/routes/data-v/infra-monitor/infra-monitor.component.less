@@ -1,7 +1,10 @@
-@top-height:  150;
-@bottom-height:  240;
+@top-height: 150;
+@bottom-height: 240;
+.infra-root-div {
+}
 
 :host ::ng-deep {
+  background-color: #000A1A;
   .page-header__title {
     text-align: center;
   }
@@ -37,7 +40,7 @@ h1 {
   height: @top-height*3 - 0.0001px;
 }
 
-.avg-fail {
+.health-stat-wrapper {
   height: @top-height*3 - 0.0001px;
 }
 
@@ -74,7 +77,7 @@ h1 {
 }
 
 .health-check-num-wrapper {
-  height:48px;
+  height: 48px;
 }
 
 .title-right {

@@ -1,0 +1,12 @@
+<div>
+  <div nz-row>
+    <div nz-col nzSpan="12" class="ecalator-fail-analysis">
+      <h2>自动电扶梯故障类别分类统计</h2>
+      <g2-custom delay="100" (render)="renderPie($event)"></g2-custom>
+    </div>
+    <div nz-col nzSpan="12" class="frequently-fail-analysis">
+      <h2>高发故障</h2>
+      <g2-tag-cloud [data]="tags" height="200" (clickItem)="handleTagClick($event)"></g2-tag-cloud>
+    </div>
+  </div>
+</div>

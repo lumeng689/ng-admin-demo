@@ -4,8 +4,8 @@ import { InfraMonitorComponent } from './infra-monitor/infra-monitor.component';
 import { RelationComponent } from './relation/relation.component';
 
 const routes: Routes = [
-  { path: 'relation', component: RelationComponent },
   { path: 'infra', component: InfraMonitorComponent },
+  { path: 'relation', component: RelationComponent },
 ];
 
 @NgModule({

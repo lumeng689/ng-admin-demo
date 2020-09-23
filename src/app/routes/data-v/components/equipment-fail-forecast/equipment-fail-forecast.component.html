@@ -1,0 +1,32 @@
+<div class="equipment-fail-forecast">
+  <h2>设备异常状态预测</h2>
+  <div>
+    <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
+      <nz-option nzLabel="电梯" nzValue="1"></nz-option>
+      <nz-option nzLabel="自动售票机" nzValue="2"></nz-option>
+      <nz-option nzLabel="屏蔽门" nzValue="3"></nz-option>
+    </nz-select>
+  </div>
+  <div
+    nz-row
+    [nzType]="'flex'"
+    [nzJustify]="'center'"
+    [nzAlign]="'middle'"
+    class="py-sm bg-grey-lighter-h point"
+  >
+    <div nz-col [nzSpan]="4" class="text-center">
+      可靠度
+    </div>
+    <div nz-col [nzSpan]="20">
+      <g2-single-bar class="single-bar" height="24" [value]="121" [max]="300" [plusColor]="'red'"></g2-single-bar>
+      <g2-single-bar class="single-bar" height="24" [value]="168" [max]="300"></g2-single-bar>
+    </div>
+    <div nz-col [nzSpan]="4" class="text-center">
+      剩余寿命
+    </div>
+    <div nz-col [nzSpan]="20">
+      <g2-single-bar class="single-bar" height="24" [value]="101" [max]="300" [plusColor]="'red'"></g2-single-bar>
+      <g2-single-bar class="single-bar" height="24" [value]="118" [max]="300"></g2-single-bar>
+    </div>
+  </div>
+</div>

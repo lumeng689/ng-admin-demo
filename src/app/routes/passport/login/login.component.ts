@@ -30,7 +30,7 @@ export class UserLoginComponent implements OnDestroy {
   ) {
     this.form = fb.group({
       userName: [null, [Validators.required, Validators.pattern(/^(admin|user)$/)]],
-      password: [null, [Validators.required, Validators.pattern(/^(ng\-alain\.com)$/)]],
+      password: [null, [Validators.required]],
       mobile: [null, [Validators.required, Validators.pattern(/^1\d{10}$/)]],
       captcha: [null, [Validators.required]],
       remember: [true],
@@ -42,15 +42,19 @@ export class UserLoginComponent implements OnDestroy {
   get userName(): AbstractControl {
     return this.form.controls.userName;
   }
+
   get password(): AbstractControl {
     return this.form.controls.password;
   }
+
   get mobile(): AbstractControl {
     return this.form.controls.mobile;
   }
+
   get captcha(): AbstractControl {
     return this.form.controls.captcha;
   }
+
   form: FormGroup;
   error = '';
   type = 0;
@@ -103,34 +107,68 @@ export class UserLoginComponent implements OnDestroy {
       }
     }
 
-    // 默认配置中对所有HTTP请求都会强制 [校验](https://ng-alain.com/auth/getting-started) 用户 Token
-    // 然一般来说登录请求不需要校验，因此可以在请求URL加上：`/login?_allow_anonymous=true` 表示不触发用户 Token 校验
-    this.http
-      .post('/login/account?_allow_anonymous=true', {
-        type: this.type,
-        userName: this.userName.value,
-        password: this.password.value,
-      })
-      .subscribe((res) => {
-        if (res.msg !== 'ok') {
-          this.error = res.msg;
-          return;
-        }
-        // 清空路由复用信息
-        this.reuseTabService.clear();
-        // 设置用户Token信息
-        // TODO: Mock expired value
-        res.user.expired = +new Date() + 1000 * 60 * 5;
-        this.tokenService.set(res.user);
-        // 重新获取 StartupService 内容，我们始终认为应用信息一般都会受当前用户授权范围而影响
-        this.startupSrv.load().then(() => {
-          let url = this.tokenService.referrer.url || '/';
-          if (url.includes('/passport')) {
-            url = '/';
-          }
-          this.router.navigateByUrl(url);
-        });
-      });
+  //   默认配置中对所有HTTP请求都会强制 [校验](https
+  // ://ng-alain.com/auth/getting-started) 用户 Token
+  //   然一般来说登录请求不需要校验，因此可以在请求URL加上：`/login?_allow_anonymous=true`;
+  //   表示不触发用户;
+  //   Token;
+  //   校验;
+  //   this.http
+  //     .post('/login/account?_allow_anonymous=true', {
+  //       type: this.type,
+  //       userName: this.userName.value,
+  //       password: this.password.value,
+  //     })
+  //     .subscribe((res) => {
+  //       if (res.msg !== 'ok') {
+  //         this.error = res.msg;
+  //         return;
+  //       }
+  //       // 清空路由复用信息
+  //       this.reuseTabService.clear();
+  //       // 设置用户Token信息
+  //       // TODO: Mock expired value
+  //       res.user.expired = +new Date() + 1000 * 60 * 5;
+  //       this.tokenService.set(res.user);
+  //       // 重新获取 StartupService 内容，我们始终认为应用信息一般都会受当前用户授权范围而影响
+  //       this.startupSrv.load().then(() => {
+  //         let url = this.tokenService.referrer.url || '/';
+  //         if (url.includes('/passport')) {
+  //           url = '/';
+  //         }
+  //         this.router.navigateByUrl(url);
+  //       });
+  //     });
+
+    let res:any = {
+      msg: 'ok',
+      user: {
+        token: '123456789',
+        name: '张三',
+        email: `aa@qq.com`,
+        id: 10000,
+        time: +new Date(),
+      },
+    };
+
+    if (res.msg !== 'ok') {
+      this.error = res.msg;
+      return;
+    }
+    // 清空路由复用信息
+    this.reuseTabService.clear();
+    // 设置用户Token信息
+    // TODO: Mock expired value
+    res.user.expired = +new Date() + 1000 * 60 * 5;
+    this.tokenService.set(res.user);
+    // 重新获取 StartupService 内容，我们始终认为应用信息一般都会受当前用户授权范围而影响
+    this.startupSrv.load().then(() => {
+      let url = this.tokenService.referrer.url || '/';
+      if (url.includes('/passport')) {
+        url = '/';
+      }
+      this.router.navigateByUrl(url);
+    });
   }
 
   // #region social

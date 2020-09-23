@@ -209,7 +209,7 @@
           "children": [
             {
               "text": "Relation",
-              "link": "/data-v/relation",
+              "link": "/data-v/infra",
               "i18n": "menu.report.relation",
               "reuse": false
             }
