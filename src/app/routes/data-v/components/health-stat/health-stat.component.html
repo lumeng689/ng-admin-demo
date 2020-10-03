@@ -1,5 +1,19 @@
 <div class="health-stat-wrapper">
-  <h2>不同设备发生的平均故障数</h2>
-  <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
-               [height]="300"></g2-timeline>
+  <nz-tabset [nzTabPosition]="'top'" [nzType]="'line'">
+    <nz-tab  [nzTitle]="'不同设备关键参数'">
+      <h2>不同设备发生的平均故障数</h2>
+      <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
+                   [height]="300"></g2-timeline>
+    </nz-tab>
+    <nz-tab  [nzTitle]="'不同区域的关键参数'">
+      <h2>不同设备发生的平均故障数</h2>
+      <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
+                   [height]="300"></g2-timeline>
+    </nz-tab>
+    <nz-tab  [nzTitle]="'关键参数统计分析'">
+      <h2>不同设备发生的平均故障数</h2>
+      <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
+                   [height]="300"></g2-timeline>
+    </nz-tab>
+  </nz-tabset>
 </div>

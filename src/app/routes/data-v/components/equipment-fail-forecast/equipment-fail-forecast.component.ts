@@ -16,4 +16,15 @@ export class EquipmentFailForecastComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onDateChange(result: Date): void {
+    console.log('Selected Time: ', result);
+  }
+
+  onDateOk(result: Date | Date[] | null): void {
+    console.log('onOk', result);
+  }
+
+  onEquipChange(result: string): void {
+    console.log('Selected equipment: ', result);
+  }
 }

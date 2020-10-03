@@ -50,6 +50,11 @@ const routes: Routes = [
     component: LayoutFullScreenComponent,
     children: [{ path: '', loadChildren: () => import('./data-v/data-v.module').then(m => m.DataVModule) }],
   },
+  {
+    path: 'fault-library',
+    component: LayoutFullScreenComponent,
+    children: [{ path: '', loadChildren: () => import('./fault-library/fault-library.module').then(m => m.FaultLibraryModule) }],
+  },
   // passport
   {
     path: 'passport',
