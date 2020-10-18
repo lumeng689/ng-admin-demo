@@ -4,13 +4,17 @@ import { SharedModule } from '@shared';
 import { SysApiRoutingModule } from './sys-api-routing.module';
 import { SysApiListComponent } from './sys-api-list/sys-api-list.component';
 
+const COMPONENTS = [SysApiListComponent];
+
+const COMPONENTS_NOROUNT = [];
 
 @NgModule({
-  declarations: [SysApiListComponent],
+  declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
   imports: [
     CommonModule,
     SharedModule,
     SysApiRoutingModule
-  ]
+  ],
+  entryComponents: [...COMPONENTS_NOROUNT]
 })
 export class SysApiModule { }

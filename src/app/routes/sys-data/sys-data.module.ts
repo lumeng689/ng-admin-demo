@@ -4,6 +4,9 @@ import { SharedModule } from '@shared';
 import { SysDataRoutingModule } from './sys-data-routing.module';
 import { SysDataListComponent } from './sys-data-list/sys-data-list.component';
 
+const COMPONENTS = [];
+
+const COMPONENTS_NOROUNT = [];
 
 @NgModule({
   declarations: [SysDataListComponent],
@@ -11,6 +14,7 @@ import { SysDataListComponent } from './sys-data-list/sys-data-list.component';
     CommonModule,
     SharedModule,
     SysDataRoutingModule
-  ]
+  ],
+  entryComponents: [...COMPONENTS_NOROUNT]
 })
 export class SysDataModule { }

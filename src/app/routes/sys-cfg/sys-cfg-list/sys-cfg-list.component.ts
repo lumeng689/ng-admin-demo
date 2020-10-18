@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { STChange, STColumn, STComponent, STData } from '@delon/abc/st';
-import { _HttpClient } from '@delon/theme';
+import { ModalHelper, _HttpClient } from '@delon/theme';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
-import { map, tap } from 'rxjs/operators';
-
+import { CfgFormComponent } from '../cfg-form/cfg-form.component';
+import { filter, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-sys-cfg-list',
@@ -51,7 +51,7 @@ export class SysCfgListComponent implements OnInit {
         {
           text: '配置',
           click: (item) => this.msg.success(`配置${item.no}`),
-        }
+        },
       ],
     },
   ];
@@ -59,7 +59,11 @@ export class SysCfgListComponent implements OnInit {
   description = '';
   totalCallNo = 0;
 
-  constructor(private http: _HttpClient, public msg: NzMessageService, private modalSrv: NzModalService, private cdr: ChangeDetectorRef) {
+  constructor(private http: _HttpClient,
+              public msg: NzMessageService,
+              private modalSrv: NzModalService,
+              private modalHelper: ModalHelper,
+              private cdr: ChangeDetectorRef) {
   }
 
   ngOnInit(): void {
@@ -841,15 +845,27 @@ export class SysCfgListComponent implements OnInit {
     this.msg.success(`审批了 ${this.selectedRows.length} 笔`);
   }
 
-  add(tpl: TemplateRef<{}>): void {
-    this.modalSrv.create({
-      nzTitle: '新建规则',
-      nzContent: tpl,
-      nzOnOk: () => {
-        this.loading = true;
-        this.http.post('/rule', { description: this.description }).subscribe(() => this.getData());
-      },
-    });
+  add(): void {
+    // this.modalSrv.create({
+    //   nzTitle: '新建规则',
+    //   nzContent: tpl,
+    //   nzOnOk: () => {
+    //     this.loading = true;
+    //     this.http.post('/rule', { description: this.description }).subscribe(() => this.getData());
+    //   },
+    // });
+    this.modalHelper
+      .open(CfgFormComponent,
+        {},
+        800,
+        {
+          nzTitle: '配置管理',
+          nzMaskClosable: false,
+        })
+      .pipe(filter(w => w === true))
+      .subscribe((result) => {
+        // this.getListData();
+      });
   }
 
   reset(): void {

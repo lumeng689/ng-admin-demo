@@ -1,0 +1,31 @@
+<form nz-form [formGroup]="form" (ngSubmit)="submit()" se-container="1" labelWidth="200">
+  <se label="设备名称" error="请输入标题" required>
+    <input nz-input formControlName="title" placeholder="设备名称"/>
+  </se>
+  <se label="编号" error="请输入编号" required>
+    <input nz-input formControlName="no" placeholder="编号"/>
+  </se>
+  <se label="所属区域" error="请输入标题" required>
+    <input nz-input formControlName="region" placeholder="所属区域"/>
+  </se>
+  <se label="类型" error="请输入标题">
+    <input nz-input formControlName="type" placeholder="所属区域"/>
+  </se>
+  <se label="IP" error="请输入标题">
+    <input nz-input formControlName="ip" placeholder="IP"/>
+  </se>
+  <se label="备注">
+      <textarea
+        nz-input
+        formControlName="desc"
+        [nzAutosize]="{ minRows: 4 }"
+        placeholder="请输入备注"
+      ></textarea>
+  </se>
+  <div *nzModalFooter>
+    <button nz-button nzType="primary" [disabled]="form.invalid" type="submit()" (click)="submit()"
+            [nzLoading]="submitting">提交
+    </button>
+    <button nz-button class="ml-sm" (click)="cancel()">取消</button>
+  </div>
+</form>
