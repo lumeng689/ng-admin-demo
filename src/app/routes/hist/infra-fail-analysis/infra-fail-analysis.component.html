@@ -1,0 +1,53 @@
+<div class="infra-fail-analysis">
+
+  <div nz-row [nzGutter]="24">
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+      <nz-card
+        [nzBordered]="false"
+        [nzTitle]="'基础设施故障预测分析'"
+        class="mb-0"
+      >
+        <div>
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
+            <nz-option nzLabel="电梯" nzValue="1"></nz-option>
+            <nz-option nzLabel="自动售票机" nzValue="2"></nz-option>
+            <nz-option nzLabel="屏蔽门" nzValue="3"></nz-option>
+          </nz-select>
+        </div>
+        <div nz-row>
+          <div nz-col class="infra-title-wrapper" nzSpan="3">
+            <i nz-icon class="infra-icon" nzType="insert-row-left" nzTheme="outline"></i>
+            <p>电梯</p>
+          </div>
+          <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="9" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="8" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="1" contentHeight="24px">
+          </g2-card>
+        </div>
+        <div nz-row>
+          <div nz-col class="infra-title-wrapper" nzSpan="3">
+            <i nz-icon class="infra-icon" nzType="bank" nzTheme="outline"></i>
+            <p>屏蔽门</p>
+          </div>
+          <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="18" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="18" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="0" contentHeight="24px">
+          </g2-card>
+        </div>
+      </nz-card>
+    </div>
+    <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+      <nz-card
+        [nzBordered]="false"
+        [nzTitle]="'自动电扶梯故障类别分类统计'"
+        class="mb-0"
+      >
+        <g2-custom delay="100" (render)="renderPie($event)"></g2-custom>
+      </nz-card>
+    </div>
+  </div>
+</div>

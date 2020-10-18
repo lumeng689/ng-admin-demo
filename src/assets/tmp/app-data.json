@@ -1,7 +1,7 @@
 {
   "app": {
-    "name": "Alain",
-    "description": "Ng-zorro admin panel front-end framework"
+    "name": "STURTS",
+    "description": "车站基础设施安全检测系统"
   },
   "user": {
     "name": "管理员",
@@ -12,26 +12,76 @@
     {
       "text": "主导航",
       "i18n": "menu.main",
-      "group": true,
+      "group": false,
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "仪表盘",
-          "i18n": "menu.dashboard",
+          "text": "运行状态统计分析",
           "icon": "anticon-dashboard",
+          "link": "/operating",
+          "i18n": "menu.stats.opt"
+        },
+        {
+          "text": "历史故障统计分析",
+          "i18n": "menu.stats.hist",
+          "icon": "anticon-rocket",
           "children": [
             {
-              "text": "Relation",
-              "link": "/data-v/infra",
-              "i18n": "menu.report.relation",
-              "reuse": false
+              "text": "基础设施故障分析",
+              "link": "/hist/infra",
+              "i18n": "menu.stats.hist.infra"
             },
             {
-              "text": "Table List",
-              "link": "/fault-library",
-              "i18n": "menu.fault.data"
+              "text": "不同设备平均故障数",
+              "link": "/hist/equip",
+              "i18n": "menu.stats.hist.equip"
             }
           ]
+        },
+        {
+          "text": "关联性分析",
+          "i18n": "menu.stats.correlation",
+          "icon": "anticon-bulb",
+          "children": [
+            {
+              "text": "车站运营关联性分析",
+              "link": "/correlation/station",
+              "i18n": "menu.stats.correlation.station"
+            },
+            {
+              "text": "设备异常状态预警",
+              "link": "/correlation/equip",
+              "i18n": "menu.stats.correlation.equip"
+            }
+          ]
+        },
+        {
+          "text": "故障库管理",
+          "i18n": "menu.fault.library",
+          "icon": "anticon-info",
+          "text": "Relation",
+          "link": "/fault-library"
+        },
+        {
+          "text": "系统数据管理",
+          "i18n": "menu.sys.data",
+          "icon": "anticon-profile",
+          "text": "Relation",
+          "link": "/sys-data"
+        },
+        {
+          "text": "系统配置管理",
+          "i18n": "menu.sys.cfg",
+          "icon": "anticon-edit",
+          "text": "Relation",
+          "link": "/sys-cfg"
+        },
+        {
+          "text": "系统后台管理",
+          "i18n": "menu.sys.api",
+          "icon": "anticon-appstore",
+          "text": "Relation",
+          "link": "/sys-api"
         }
       ]
     }

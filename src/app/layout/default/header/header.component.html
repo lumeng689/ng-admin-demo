@@ -1,7 +1,8 @@
 <div class="alain-default__header-logo">
   <a [routerLink]="['/']" class="alain-default__header-logo-link">
-    <img class="alain-default__header-logo-expanded" src="./assets/logo-full.svg" [attr.alt]="app.name" style="max-height: 40px;" />
-    <img class="alain-default__header-logo-collapsed" src="./assets/logo.svg" [attr.alt]="app.name" style="max-height: 30px;" />
+    <span style="color:#FFF">车站基础设施安全检测系统</span>
+<!--    <img class="alain-default__header-logo-expanded" src="./assets/logo-full.svg" [attr.alt]="app.name" style="max-height: 40px;" />-->
+<!--    <img class="alain-default__header-logo-collapsed" src="./assets/logo.svg" [attr.alt]="app.name" style="max-height: 30px;" />-->
   </a>
 </div>
 <div class="alain-default__nav-wrap">
@@ -13,32 +14,32 @@
       </div>
     </li>
     <!-- Lock Page -->
-    <li class="hidden-mobile">
-      <div class="alain-default__nav-item" routerLink="/passport/lock">
-        <i nz-icon nzType="lock"></i>
-      </div>
-    </li>
+<!--    <li class="hidden-mobile">-->
+<!--      <div class="alain-default__nav-item" routerLink="/passport/lock">-->
+<!--        <i nz-icon nzType="lock"></i>-->
+<!--      </div>-->
+<!--    </li>-->
     <!-- Search Button -->
-    <li class="hidden-pc" (click)="searchToggleChange()">
-      <div class="alain-default__nav-item">
-        <i nz-icon nzType="search"></i>
-      </div>
-    </li>
+<!--    <li class="hidden-pc" (click)="searchToggleChange()">-->
+<!--      <div class="alain-default__nav-item">-->
+<!--        <i nz-icon nzType="search"></i>-->
+<!--      </div>-->
+<!--    </li>-->
   </ul>
-  <header-search class="alain-default__search" [toggleChange]="searchToggleStatus"></header-search>
+<!--  <header-search class="alain-default__search" [toggleChange]="searchToggleStatus"></header-search>-->
   <ul class="alain-default__nav">
     <!-- Notify -->
-    <li>
-      <header-notify></header-notify>
-    </li>
+<!--    <li>-->
+<!--      <header-notify></header-notify>-->
+<!--    </li>-->
     <!-- Task -->
-    <li class="hidden-mobile">
-      <header-task></header-task>
-    </li>
+<!--    <li class="hidden-mobile">-->
+<!--      <header-task></header-task>-->
+<!--    </li>-->
     <!-- App Icons -->
-    <li class="hidden-mobile">
-      <header-icon></header-icon>
-    </li>
+<!--    <li class="hidden-mobile">-->
+<!--      <header-icon></header-icon>-->
+<!--    </li>-->
     <!-- Settings -->
     <li class="hidden-mobile">
       <div class="alain-default__nav-item" nz-dropdown [nzDropdownMenu]="settingsMenu" nzTrigger="click" nzPlacement="bottomRight">
