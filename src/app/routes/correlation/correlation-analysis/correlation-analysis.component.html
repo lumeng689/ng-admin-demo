@@ -1,7 +1,14 @@
 <div class="correlation-analysis">
-  <img
-    width="100%"
-    src="assets/tmp/img/tttt2.jpg"
-    alt="map"
-  />
+ <div class="header-title">
+   <h1>车站运营关联性分析</h1>
+ </div>
+  <div class="map-layer-container">
+    <img
+      width="100%"
+      [src]="mapSrc" (load)="onImageLoaded($event)"
+    />
+    <canvas class="map-layer-canvas" #mapLayerCanvas></canvas>
+  </div>
+  <img src="./assets/tmp/img/alert_point.png" class="alert-point"/>
+  <app-layer-btn (dropDownChange)="onImageChange($event)"></app-layer-btn>
 </div>

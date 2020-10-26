@@ -26,7 +26,7 @@ const routes: Routes = [
     canActivate: [SimpleGuard],
     canActivateChild: [SimpleGuard],
     children: [
-      // { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
+      { path: '', redirectTo: 'monitor', pathMatch: 'full' },
       // { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
       // { path: 'dashboard/v1', component: DashboardV1Component },
       // { path: 'dashboard/analysis', component: DashboardAnalysisComponent },
@@ -40,6 +40,10 @@ const routes: Routes = [
       // { path: 'delon', loadChildren: () => import('./delon/delon.module').then(m => m.DelonModule) },
       // { path: 'extras', loadChildren: () => import('./extras/extras.module').then(m => m.ExtrasModule) },
       // { path: 'pro', loadChildren: () => import('./pro/pro.module').then(m => m.ProModule) },
+      {
+        path: 'monitor',
+        loadChildren: () => import('./monitor/monitor.module').then(m => m.MonitorModule),
+      },
       {
         path: 'operating',
         loadChildren: () => import('./operating/operating.module').then(m => m.OperatingModule),

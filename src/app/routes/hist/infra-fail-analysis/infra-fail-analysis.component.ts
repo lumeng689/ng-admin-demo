@@ -10,6 +10,16 @@ import { Chart } from '@antv/g2';
 })
 export class InfraFailAnalysisComponent implements OnInit {
 
+  equipSelValue  = 1;
+
+  get nzTitle(): string {
+    if (this.equipSelValue === 1) {
+      return '自动电扶梯故障类别分类统计';
+    } else {
+      return '屏蔽门故障类别分类统计';
+    }
+  }
+
   constructor(private msg: NzMessageService,
               private ngZone: NgZone,
               private i18n: I18NService) { }

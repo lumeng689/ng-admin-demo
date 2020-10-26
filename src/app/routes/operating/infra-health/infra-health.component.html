@@ -1,53 +1,50 @@
 <div class="infra-health">
   <nz-card [nzBordered]="false" class="ant-card__body-nopadding sales-card">
-    <h2>基础设施健康状态</h2>
-    <div nz-row>
-      <div nz-col nzSpan="12">
-        <nz-date-picker
-          nzShowTime
-          nzFormat="yyyy-MM-dd HH:mm:ss"
-          nzPlaceHolder="时间"
-          ngModel
-          (ngModelChange)="onDateChange($event)"
-          (nzOnOk)="onDateOk($event)"
-        ></nz-date-picker>
-      </div>
-      <div nz-col nzSpan="12">
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
-          <nz-option nzLabel="电梯" nzValue="1"></nz-option>
-          <nz-option nzLabel="自动售票机" nzValue="2"></nz-option>
-          <nz-option nzLabel="屏蔽门" nzValue="3"></nz-option>
-        </nz-select>
-      </div>
+    <div>
+      <h1 class="page-header-title">基础设施健康状态</h1>
     </div>
     <div nz-row>
-      <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8">
-        <g2-pie
-          [hasLegend]="false"
-          subTitle="75%"
-          [total]="total"
-          [valueFormat]="format"
-          [data]="salesPieData"
-          height="300"
-          (clickItem)="handlePieClick($event)"
-        ></g2-pie>
-      </div>
-      <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="16">
-        <div nz-row class="health-check-num-wrapper">
-          <div nz-col nzSpan="12">检测设备数</div>
-          <div nz-col nzSpan="12">90/666</div>
-        </div>
-        <div nz-row class="health-check-num-wrapper">
+      <div nz-col nzSpan="18" nzOffset="3">
+        <div nz-row>
           <div nz-col nzSpan="12">
-            <div nz-row>
-              <div nz-col nzSpan="12">电梯</div>
-              <div nz-col nzSpan="12">68/317</div>
-            </div>
+            <nz-date-picker
+              nzShowTime
+              nzFormat="yyyy-MM-dd HH:mm:ss"
+              nzPlaceHolder="时间"
+              ngModel
+              (ngModelChange)="onDateChange($event)"
+              (nzOnOk)="onDateOk($event)"
+            ></nz-date-picker>
           </div>
           <div nz-col nzSpan="12">
-            <div nz-row>
-              <div nz-col nzSpan="12">屏蔽门</div>
-              <div nz-col nzSpan="12">26/209</div>
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
+              <nz-option nzLabel="电梯" nzValue="1"></nz-option>
+              <nz-option nzLabel="自动售票机" nzValue="2"></nz-option>
+              <nz-option nzLabel="屏蔽门" nzValue="3"></nz-option>
+            </nz-select>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div nz-row class="chart-region">
+      <div nz-col nzSpan="18" nzOffset="3" class="chart-region-main">
+        <div nz-row>
+          <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8">
+            <g2-pie
+              [hasLegend]="true"
+              title="健康状态"
+              subTitle="75%"
+              [total]="total"
+              [valueFormat]="format"
+              [data]="salesPieData"
+              height="180"
+              (clickItem)="handlePieClick($event)"
+            ></g2-pie>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="16" class="number-stat">
+            <div>
+              <h2>本月检测设备数</h2>
+              <div><span>90</span>/<span>160</span></div>
             </div>
           </div>
         </div>

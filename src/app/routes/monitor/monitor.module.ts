@@ -1,28 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SharedModule } from '@shared';
-import { CorrelationRoutingModule } from './correlation-routing.module';
-
-import { CorrelationAnalysisComponent } from './correlation-analysis/correlation-analysis.component';
-import { EquipmentFailForecastComponent } from './equipment-fail-forecast/equipment-fail-forecast.component';
+import { MonitorRoutingModule } from './monitor-routing.module';
+import { RealTimeWarningComponent } from './real-time-warning/real-time-warning.component';
 import { LayerBtnComponent } from './components/layer-btn/layer-btn.component';
 
-
 const COMPONENTS = [
-  CorrelationAnalysisComponent,
-  EquipmentFailForecastComponent,
+  RealTimeWarningComponent,
   LayerBtnComponent,
 ];
+
 const COMPONENTS_NOROUNT = [];
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    CorrelationRoutingModule,
+    MonitorRoutingModule,
   ],
   declarations: [...COMPONENTS, ...COMPONENTS_NOROUNT],
   entryComponents: COMPONENTS_NOROUNT,
 })
-export class CorrelationModule {
+export class MonitorModule {
 }

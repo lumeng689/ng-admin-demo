@@ -8,13 +8,13 @@
         class="mb-0"
       >
         <div>
-          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
+          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" [(ngModel)]="equipSelValue"
+                     (ngModelChange)="onEquipChange($event)">
             <nz-option nzLabel="电梯" nzValue="1"></nz-option>
-            <nz-option nzLabel="自动售票机" nzValue="2"></nz-option>
-            <nz-option nzLabel="屏蔽门" nzValue="3"></nz-option>
+            <nz-option nzLabel="屏蔽门" nzValue="2"></nz-option>
           </nz-select>
         </div>
-        <div nz-row>
+        <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=1}">
           <div nz-col class="infra-title-wrapper" nzSpan="3">
             <i nz-icon class="infra-icon" nzType="insert-row-left" nzTheme="outline"></i>
             <p>电梯</p>
@@ -26,7 +26,7 @@
           <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="1" contentHeight="24px">
           </g2-card>
         </div>
-        <div nz-row>
+        <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=2}">
           <div nz-col class="infra-title-wrapper" nzSpan="3">
             <i nz-icon class="infra-icon" nzType="bank" nzTheme="outline"></i>
             <p>屏蔽门</p>
@@ -43,7 +43,7 @@
     <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
       <nz-card
         [nzBordered]="false"
-        [nzTitle]="'自动电扶梯故障类别分类统计'"
+        [nzTitle]="nzTitle"
         class="mb-0"
       >
         <g2-custom delay="100" (render)="renderPie($event)"></g2-custom>

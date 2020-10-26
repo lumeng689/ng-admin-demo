@@ -1,0 +1,16 @@
+<a nz-dropdown nzTrigger="click" [nzDropdownMenu]="menu">
+  图层
+  <i nz-icon nzType="down"></i>
+</a>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <ul nz-menu>
+    <li nz-menu-item (click)="changeMap(1)" >
+      <span class="layer-select-icon"><i class="icon" nz-icon nzType="home" nzTheme="outline"></i></span>
+      <span class="layer-select-label">站厅</span>
+    </li>
+    <li nz-menu-item (click)="changeMap(2)" >
+      <span class="layer-select-icon"><i class="icon" nz-icon nzType="car" nzTheme="outline"></i></span>
+      <span class="layer-select-label">站台</span>
+    </li>
+  </ul>
+</nz-dropdown-menu>

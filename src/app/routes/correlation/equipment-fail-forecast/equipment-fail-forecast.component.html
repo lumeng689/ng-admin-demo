@@ -1,5 +1,5 @@
 <div class="equipment-fail-forecast">
-  <nz-card  [nzBordered]="false" class="ant-card__body-nopadding sales-card">
+  <nz-card [nzBordered]="false" class="ant-card__body-nopadding sales-card">
     <h2>设备异常状态预测</h2>
     <div>
       <nz-date-picker
@@ -29,25 +29,26 @@
       </nz-select>
     </div>
     <div
-      nz-row
-      [nzType]="'flex'"
-      [nzJustify]="'center'"
-      [nzAlign]="'middle'"
-      class="py-sm bg-grey-lighter-h point"
-    >
-      <div nz-col [nzSpan]="4" class="text-center">
-        可靠度
-      </div>
-      <div nz-col [nzSpan]="20">
-        <g2-single-bar class="single-bar" height="24" [value]="121" [max]="300" [plusColor]="'red'"></g2-single-bar>
-        <g2-single-bar class="single-bar" height="24" [value]="168" [max]="300"></g2-single-bar>
-      </div>
-      <div nz-col [nzSpan]="4" class="text-center">
-        剩余寿命
-      </div>
-      <div nz-col [nzSpan]="20">
-        <g2-single-bar class="single-bar" height="24" [value]="101" [max]="300" [plusColor]="'red'"></g2-single-bar>
-        <g2-single-bar class="single-bar" height="24" [value]="118" [max]="300"></g2-single-bar>
+      class="stat-main">
+      <div nz-row
+           class="stat-main-inner"
+           [nzType]="'flex'"
+           [nzJustify]="'center'"
+           [nzAlign]="'middle'">
+        <div nz-col [nzSpan]="4" class="text-center">
+          可靠度
+        </div>
+        <div nz-col [nzSpan]="20">
+          <g2-single-bar class="single-bar" height="24" [value]="121" [max]="300" [plusColor]="'red'"></g2-single-bar>
+          <g2-single-bar class="single-bar" height="24" [value]="168" [max]="300"></g2-single-bar>
+        </div>
+        <div nz-col [nzSpan]="4" class="text-center">
+          剩余寿命
+        </div>
+        <div nz-col [nzSpan]="20">
+          <g2-single-bar class="single-bar" height="24" [value]="101" [max]="300" [plusColor]="'red'"></g2-single-bar>
+          <g2-single-bar class="single-bar" height="24" [value]="118" [max]="300"></g2-single-bar>
+        </div>
       </div>
     </div>
   </nz-card>

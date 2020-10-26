@@ -3,6 +3,7 @@ import { STChange, STColumn, STComponent, STData } from '@delon/abc/st';
 import { ModalHelper, _HttpClient } from '@delon/theme';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzModalService } from 'ng-zorro-antd/modal';
+import { CfgDetailComponent } from '../cfg-detail/cfg-detail.component';
 import { CfgFormComponent } from '../cfg-form/cfg-form.component';
 import { filter, map, tap } from 'rxjs/operators';
 
@@ -50,7 +51,7 @@ export class SysCfgListComponent implements OnInit {
       buttons: [
         {
           text: '配置',
-          click: (item) => this.msg.success(`配置${item.no}`),
+          click: (item) => this.showDetail(item.no),
         },
       ],
     },
@@ -843,6 +844,21 @@ export class SysCfgListComponent implements OnInit {
 
   approval(): void {
     this.msg.success(`审批了 ${this.selectedRows.length} 笔`);
+  }
+
+  showDetail(no: any): void {
+    this.modalHelper
+      .open(CfgDetailComponent,
+        {},
+        800,
+        {
+          nzTitle: '配置详情',
+          nzMaskClosable: false,
+        })
+      .pipe(filter(w => w === true))
+      .subscribe((result) => {
+        // this.getListData();
+      });
   }
 
   add(): void {

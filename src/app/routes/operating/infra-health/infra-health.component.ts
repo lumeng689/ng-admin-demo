@@ -51,7 +51,7 @@ export class InfraHealthComponent implements OnInit {
   }
 
   format(val: number): string {
-    return `&yen ${val.toFixed(2)}`;
+    return ``;
   }
 
 

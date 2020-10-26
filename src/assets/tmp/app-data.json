@@ -16,6 +16,12 @@
       "hideInBreadcrumb": true,
       "children": [
         {
+          "text": "实时预警",
+          "icon": "anticon-notification",
+          "link": "/monitor",
+          "i18n": "menu.realtime.monitor"
+        },
+        {
           "text": "运行状态统计分析",
           "icon": "anticon-dashboard",
           "link": "/operating",

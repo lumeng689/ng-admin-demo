@@ -1,0 +1,11 @@
+<div class="real-time-warning-root" #realTimeWarningDiv>
+  <div class="header-title">
+    <h1>深圳北站 <i nz-icon nzType="fullscreen" nzTheme="outline" (click)="toggleFullScreen()"></i></h1>
+  </div>
+  <img
+    width="100%"
+    [src]="mapSrc"
+    alt="map"
+  />
+  <app-layer-btn (dropDownChange)="onDropDownChange($event)"></app-layer-btn>
+</div>
