@@ -4,7 +4,7 @@
     <div nz-row [nzGutter]="{ xs: 8, sm: 8, md: 8, lg: 24, xl: 48, xxl: 48 }">
       <div nz-col nzMd="8" nzSm="24">
         <nz-form-item>
-          <nz-form-label nzFor="no">编码器ID</nz-form-label>
+          <nz-form-label nzFor="no">用户名</nz-form-label>
           <nz-form-control>
             <input nz-input [(ngModel)]="q.no" name="no" placeholder="请输入" id="no" />
           </nz-form-control>
@@ -12,7 +12,7 @@
       </div>
       <div nz-col nzMd="8" nzSm="24">
         <nz-form-item>
-          <nz-form-label nzFor="name">编码器名称</nz-form-label>
+          <nz-form-label nzFor="name">角色</nz-form-label>
           <nz-form-control>
             <input nz-input [(ngModel)]="q.name" name="name" placeholder="请输入" id="name" />
           </nz-form-control>
@@ -20,29 +20,9 @@
       </div>
       <div nz-col nzMd="8" nzSm="24">
         <nz-form-item>
-          <nz-form-label nzFor="callNo">IP</nz-form-label>
+          <nz-form-label nzFor="status2">邮箱</nz-form-label>
           <nz-form-control>
-            <input nz-input id="callNo" />
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col nzMd="8" nzSm="24">
-        <nz-form-item>
-          <nz-form-label nzFor="model">型号</nz-form-label>
-          <nz-form-control>
-            <nz-select [nzPlaceHolder]="'请选择'" nzId="model" [nzShowSearch]="true">
-              <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
-      </div>
-      <div nz-col nzMd="8" nzSm="24">
-        <nz-form-item>
-          <nz-form-label nzFor="status2">接入服务器</nz-form-label>
-          <nz-form-control>
-            <nz-select [nzPlaceHolder]="'请选择'" nzId="status2" [nzShowSearch]="true">
-              <nz-option *ngFor="let i of status; let idx = index" [nzLabel]="i.text" [nzValue]="idx"></nz-option>
-            </nz-select>
+            <input nz-input [(ngModel)]="q.name" name="name" placeholder="请输入" id="status2" />
           </nz-form-control>
         </nz-form-item>
       </div>
@@ -56,7 +36,7 @@
           </nz-form-control>
         </nz-form-item>
       </div>
-      <div nz-col [nzSpan]="24" class="text-right">
+      <div nz-col nzMd="8" nzSm="24" class="text-right">
         <button nz-button type="submit" [nzType]="'primary'" [nzLoading]="loading">查询</button>
         <button nz-button type="reset" (click)="reset()" class="mx-sm">重置</button>
       </div>

@@ -69,7 +69,7 @@
   "menu.extras.settings": "设置",
   "menu.extras.poi": "门店",
   "menu.fault.data": "故障维修数据管理",
-  "menu.realtime.monitor": "实时预警",
+  "menu.realtime.monitor": "首页",
   "menu.stats.opt": "运行状态统计分析",
   "menu.stats.hist": "历史故障统计分析",
   "menu.stats.hist.infra": "基础设施故障分析",

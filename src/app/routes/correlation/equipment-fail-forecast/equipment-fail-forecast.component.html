@@ -1,6 +1,6 @@
+<page-header [title]="'设备异常状态预警'"></page-header>
 <div class="equipment-fail-forecast">
   <nz-card [nzBordered]="false" class="ant-card__body-nopadding sales-card">
-    <h2>设备异常状态预测</h2>
     <div>
       <nz-date-picker
         nzShowTime
@@ -20,10 +20,6 @@
         <nz-option nzLabel="屏蔽门" nzValue="2"></nz-option>
       </nz-select>
       <nz-select nzShowSearch nzAllowClear nzPlaceHolder="故障" (ngModelChange)="onEquipChange($event)">
-        <nz-option nzLabel="轴承" nzValue="1"></nz-option>
-        <nz-option nzLabel="屏蔽门" nzValue="2"></nz-option>
-      </nz-select>
-      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="部件" (ngModelChange)="onEquipChange($event)">
         <nz-option nzLabel="轴承" nzValue="1"></nz-option>
         <nz-option nzLabel="屏蔽门" nzValue="2"></nz-option>
       </nz-select>

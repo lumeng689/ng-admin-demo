@@ -18,56 +18,29 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
     <nz-dropdown-menu #taskMenu="nzDropdownMenu">
       <div nz-menu class="wd-lg">
         <div *ngIf="loading" class="mx-lg p-lg"><nz-spin></nz-spin></div>
-        <nz-card *ngIf="!loading" nzTitle="Notifications" nzBordered="false" class="ant-card__body-nopadding">
+        <nz-card *ngIf="!loading" nzTitle="告警列表" nzBordered="false" class="ant-card__body-nopadding">
           <ng-template #extra><i nz-icon nzType="plus"></i></ng-template>
           <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm point">
             <div nz-col [nzSpan]="4" class="text-center">
-              <nz-avatar [nzSrc]="'./assets/tmp/img/1.png'"></nz-avatar>
+              <nz-avatar [nzSrc]="'./assets/tmp/img/door.jpg'"></nz-avatar>
             </div>
             <div nz-col [nzSpan]="20">
-              <strong>cipchk</strong>
-              <p class="mb0">Please tell me what happened in a few words, don't go into details.</p>
+              <strong>屏蔽门</strong>
+              <p class="mb0">1号屏蔽门出现故障.</p>
             </div>
           </div>
           <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm point">
             <div nz-col [nzSpan]="4" class="text-center">
-              <nz-avatar [nzSrc]="'./assets/tmp/img/2.png'"></nz-avatar>
+              <nz-avatar [nzSrc]="'./assets/tmp/img/lift.jpg'"></nz-avatar>
             </div>
             <div nz-col [nzSpan]="20">
-              <strong>はなさき</strong>
-              <p class="mb0">ハルカソラトキヘダツヒカリ</p>
-            </div>
-          </div>
-          <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm point">
-            <div nz-col [nzSpan]="4" class="text-center">
-              <nz-avatar [nzSrc]="'./assets/tmp/img/3.png'"></nz-avatar>
-            </div>
-            <div nz-col [nzSpan]="20">
-              <strong>苏先生</strong>
-              <p class="mb0">请告诉我，我应该说点什么好？</p>
-            </div>
-          </div>
-          <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm point">
-            <div nz-col [nzSpan]="4" class="text-center">
-              <nz-avatar [nzSrc]="'./assets/tmp/img/4.png'"></nz-avatar>
-            </div>
-            <div nz-col [nzSpan]="20">
-              <strong>Kent</strong>
-              <p class="mb0">Please tell me what happened in a few words, don't go into details.</p>
-            </div>
-          </div>
-          <div nz-row [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'" class="py-sm point">
-            <div nz-col [nzSpan]="4" class="text-center">
-              <nz-avatar [nzSrc]="'./assets/tmp/img/5.png'"></nz-avatar>
-            </div>
-            <div nz-col [nzSpan]="20">
-              <strong>Jefferson</strong>
-              <p class="mb0">Please tell me what happened in a few words, don't go into details.</p>
+              <strong>电梯</strong>
+              <p class="mb0">2号电梯出现故障，请迅速派人进行查看</p>
             </div>
           </div>
           <div nz-row>
             <div nz-col [nzSpan]="24" class="pt-md border-top-1 text-center text-grey point">
-              See All
+              查看全部消息
             </div>
           </div>
         </nz-card>

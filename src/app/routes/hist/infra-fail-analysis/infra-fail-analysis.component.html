@@ -1,5 +1,5 @@
+<page-header [title]="'分类统计'"></page-header>
 <div class="infra-fail-analysis">
-
   <div nz-row [nzGutter]="24">
     <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
       <nz-card
@@ -10,23 +10,18 @@
         <div>
           <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" [(ngModel)]="equipSelValue"
                      (ngModelChange)="onEquipChange($event)">
-            <nz-option nzLabel="电梯" nzValue="1"></nz-option>
-            <nz-option nzLabel="屏蔽门" nzValue="2"></nz-option>
+            <nz-option nzLabel="屏蔽门" nzValue="1"></nz-option>
+            <nz-option nzLabel="检票机" nzValue="2"></nz-option>
+            <nz-option nzLabel="电梯" nzValue="3"></nz-option>
+          </nz-select>
+          <nz-select nzAllowClear nzPlaceHolder="时间" nzSuffixIcon="calendar">
+            <nz-option nzLabel="最近1小时" nzValue="1h"></nz-option>
+            <nz-option nzLabel="最近12小时" nzValue="12h"></nz-option>
+            <nz-option nzLabel="最近1天" nzValue="1d"></nz-option>
+            <nz-option nzLabel="最近7天" nzValue="7d"></nz-option>
           </nz-select>
         </div>
         <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=1}">
-          <div nz-col class="infra-title-wrapper" nzSpan="3">
-            <i nz-icon class="infra-icon" nzType="insert-row-left" nzTheme="outline"></i>
-            <p>电梯</p>
-          </div>
-          <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="9" contentHeight="24px">
-          </g2-card>
-          <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="8" contentHeight="24px">
-          </g2-card>
-          <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="1" contentHeight="24px">
-          </g2-card>
-        </div>
-        <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=2}">
           <div nz-col class="infra-title-wrapper" nzSpan="3">
             <i nz-icon class="infra-icon" nzType="bank" nzTheme="outline"></i>
             <p>屏蔽门</p>
@@ -36,6 +31,30 @@
           <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="18" contentHeight="24px">
           </g2-card>
           <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="0" contentHeight="24px">
+          </g2-card>
+        </div>
+        <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=2}">
+          <div nz-col class="infra-title-wrapper" nzSpan="3">
+            <i nz-icon class="infra-icon" nzType="bank" nzTheme="outline"></i>
+            <p>检票机</p>
+          </div>
+          <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="36" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="32" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="4" contentHeight="24px">
+          </g2-card>
+        </div>
+        <div nz-row [ngClass]="{'equip-hidden': equipSelValue!=3}">
+          <div nz-col class="infra-title-wrapper" nzSpan="3">
+            <i nz-icon class="infra-icon" nzType="insert-row-left" nzTheme="outline"></i>
+            <p>电梯</p>
+          </div>
+          <g2-card nz-col nzSpan="7" [title]="'设备总数'" total="9" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'健康设备'" total="8" contentHeight="24px">
+          </g2-card>
+          <g2-card nz-col nzSpan="7" [title]="'故障设备'" total="1" contentHeight="24px">
           </g2-card>
         </div>
       </nz-card>

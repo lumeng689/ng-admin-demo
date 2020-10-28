@@ -1,4 +1,14 @@
-import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Inject,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd/message';
 import { I18NService } from '@core';
@@ -8,11 +18,13 @@ import { I18NService } from '@core';
   templateUrl: './correlation-analysis.component.html',
   styleUrls: ['./correlation-analysis.component.less'],
 })
-export class CorrelationAnalysisComponent implements OnInit, AfterViewInit {
+export class CorrelationAnalysisComponent implements OnInit, AfterViewInit, OnDestroy {
 
   @ViewChild('mapLayerCanvas', { static: false })
   mapLayerCanvasElem: ElementRef;
   mapLayerCanvas: CanvasRenderingContext2D;
+
+  errorContainers: HTMLDivElement[] = [];
 
   mapSrc = 'assets/tmp/img/tttt1.jpg';
 
@@ -72,9 +84,11 @@ export class CorrelationAnalysisComponent implements OnInit, AfterViewInit {
     errorContainer.append(ul);
     // Set the id of the div
     // this.renderer.setProperty(errorContainer, 'class', 'error-container');
-    this.renderer.setAttribute(errorContainer, 'class', 'error-container')
+    this.renderer.setAttribute(errorContainer, 'class', 'error-container');
     // Append the created div to the body element
     this.renderer.appendChild(document.body, errorContainer);
+
+    this.errorContainers.push(errorContainer);
   }
 
   onImageChange(val: any): void {
@@ -86,5 +100,13 @@ export class CorrelationAnalysisComponent implements OnInit, AfterViewInit {
     const elm = this.mapLayerCanvasElem.nativeElement as HTMLCanvasElement;
     elm.width = this.imageRect.width;
     elm.height = this.imageRect.height;
+  }
+
+  ngOnDestroy(): void {
+    this.mapLayerCanvas.clearRect(0, 0, this.imageRect.width, this.imageRect.height);
+    // this.doc.removeChild()
+    this.errorContainers.forEach((item) => {
+      document.body.removeChild(item);
+    });
   }
 }
