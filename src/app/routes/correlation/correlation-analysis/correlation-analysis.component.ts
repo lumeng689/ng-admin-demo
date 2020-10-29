@@ -61,34 +61,34 @@ export class CorrelationAnalysisComponent implements OnInit, AfterViewInit, OnDe
     console.log('image rect info...');
     console.dir(this.imageRect);
     this.resetCanvasRect();
-    const img = this.doc.querySelector('.alert-point') as HTMLImageElement;
-    this.mapLayerCanvas.drawImage(img, 300, 300);
+    // const img = this.doc.querySelector('.alert-point') as HTMLImageElement;
+    // this.mapLayerCanvas.drawImage(img, 300, 300);
 
     this.createErrorContainer();
   }
 
   createErrorContainer(): void {
-    // Use Angular's Renderer2 to create the div element
-    const errorContainer = this.renderer.createElement('div') as HTMLDivElement;
-    const ul = this.renderer.createElement('ul') as HTMLUListElement;
-    const li1 = this.renderer.createElement('li') as HTMLLIElement;
-    li1.append('故障设备：');
-    const li2 = this.renderer.createElement('li') as HTMLLIElement;
-    li2.append('故障类型：');
-    const li3 = this.renderer.createElement('li') as HTMLLIElement;
-    li3.append('发生时间：');
-    const li4 = this.renderer.createElement('li') as HTMLLIElement;
-    li4.append('受影响车站信息：');
-
-    ul.append(li1, li2, li3, li4);
-    errorContainer.append(ul);
-    // Set the id of the div
-    // this.renderer.setProperty(errorContainer, 'class', 'error-container');
-    this.renderer.setAttribute(errorContainer, 'class', 'error-container');
-    // Append the created div to the body element
-    this.renderer.appendChild(document.body, errorContainer);
-
-    this.errorContainers.push(errorContainer);
+    // // Use Angular's Renderer2 to create the div element
+    // const errorContainer = this.renderer.createElement('div') as HTMLDivElement;
+    // const ul = this.renderer.createElement('ul') as HTMLUListElement;
+    // const li1 = this.renderer.createElement('li') as HTMLLIElement;
+    // li1.append('故障设备：');
+    // const li2 = this.renderer.createElement('li') as HTMLLIElement;
+    // li2.append('故障类型：');
+    // const li3 = this.renderer.createElement('li') as HTMLLIElement;
+    // li3.append('发生时间：');
+    // const li4 = this.renderer.createElement('li') as HTMLLIElement;
+    // li4.append('受影响车站信息：');
+    //
+    // ul.append(li1, li2, li3, li4);
+    // errorContainer.append(ul);
+    // // Set the id of the div
+    // // this.renderer.setProperty(errorContainer, 'class', 'error-container');
+    // this.renderer.setAttribute(errorContainer, 'class', 'error-container');
+    // // Append the created div to the body element
+    // this.renderer.appendChild(document.body, errorContainer);
+    //
+    // this.errorContainers.push(errorContainer);
   }
 
   onImageChange(val: any): void {

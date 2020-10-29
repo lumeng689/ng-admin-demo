@@ -1,6 +1,21 @@
 <page-header [title]="'车站运营关联性分析'"></page-header>
 <div class="correlation-analysis">
   <div class="map-layer-container">
+    <ng-template #contentTemplate>
+      <div>
+        <p>故障设备：屏蔽门</p>
+        <p>故障类型：</p>
+        <p>故障时间：2020-10-29 12:00:00</p>
+        <p>受影响车站信息：</p>
+      </div>
+    </ng-template>
+    <i nz-icon nzType="info-circle" class="error-info-icon" nzTheme="outline" nz-popover nzPopoverTitle="故障详情" [nzPopoverContent]="contentTemplate" nzPopoverPlacement="topRight"></i>
+    <ng-template #contentTemplate>
+      <div>
+        <p>Content</p>
+        <p>Content</p>
+      </div>
+    </ng-template>
     <img
       width="100%"
       [src]="mapSrc" (load)="onImageLoaded($event)"

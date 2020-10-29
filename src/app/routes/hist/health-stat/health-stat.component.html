@@ -4,19 +4,46 @@
 
     <nz-tabset [nzTabPosition]="'top'" [nzType]="'line'">
       <nz-tab [nzTitle]="'不同设备关键参数'">
-        <h2>不同设备发生的平均故障数</h2>
-        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
-                     [height]="300"></g2-timeline>
+        <h2 class="text-center">不同设备发生的平均故障数</h2>
+        <g2-custom (render)="renderChart1($event)"  [height]="300"  [width]="'100%'"></g2-custom>
       </nz-tab>
       <nz-tab [nzTitle]="'不同区域的关键参数'">
-        <h2>不同设备发生的平均故障数</h2>
-        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
-                     [height]="300"></g2-timeline>
+        <h2 class="text-center">不同区域发生的平均故障数</h2>
+        <g2-custom (render)="renderChart2($event)"  [height]="300"  [width]="'100%'"></g2-custom>
+<!--        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"-->
+<!--                     [height]="300"></g2-timeline>-->
       </nz-tab>
       <nz-tab [nzTitle]="'关键参数统计分析'">
-        <h2>不同设备发生的平均故障数</h2>
-        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"
-                     [height]="300"></g2-timeline>
+        <div nz-col nzSpan="18" nzOffset="3">
+          <div nz-row>
+            <div nz-col nzSpan="8">
+              时间
+              <nz-select nzAllowClear nzSuffixIcon="calendar">
+                <nz-option nzLabel="最近1小时" nzValue="1h"></nz-option>
+                <nz-option nzLabel="最近12小时" nzValue="12h"></nz-option>
+                <nz-option nzLabel="最近1天" nzValue="1d"></nz-option>
+                <nz-option nzLabel="最近7天" nzValue="7d"></nz-option>
+              </nz-select>
+            </div>
+            <div nz-col nzSpan="8">
+              设备
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="设备" (ngModelChange)="onEquipChange($event)">
+                <nz-option nzLabel="屏蔽门" nzValue="1"></nz-option>
+                <nz-option nzLabel="检票机" nzValue="2"></nz-option>
+                <nz-option nzLabel="电梯" nzValue="3"></nz-option>
+              </nz-select>
+            </div>
+            <div nz-col nzSpan="8">
+              区域
+              <nz-select nzShowSearch nzAllowClear nzPlaceHolder="区域" (ngModelChange)="onEquipChange($event)">
+                <nz-option nzLabel="站厅" nzValue="1"></nz-option>
+                <nz-option nzLabel="站台" nzValue="2"></nz-option>
+              </nz-select>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-center">故障发生数</h2>
+        <g2-custom (render)="renderChart3($event)"  [height]="300" [width]="'100%'"></g2-custom>
       </nz-tab>
     </nz-tabset>
   </nz-card>

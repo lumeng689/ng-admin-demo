@@ -16,7 +16,7 @@
       "hideInBreadcrumb": true,
       "children": [
         {
-          "text": "实时预警",
+          "text": "首页",
           "icon": "anticon-notification",
           "link": "/monitor",
           "i18n": "menu.realtime.monitor"
