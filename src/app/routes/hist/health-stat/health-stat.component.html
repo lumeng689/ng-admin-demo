@@ -5,11 +5,11 @@
     <nz-tabset [nzTabPosition]="'top'" [nzType]="'line'">
       <nz-tab [nzTitle]="'不同设备关键参数'">
         <h2 class="text-center">不同设备发生的平均故障数</h2>
-        <g2-custom (render)="renderChart1($event)"  [height]="300"  [width]="'100%'"></g2-custom>
+        <g2-custom (render)="renderChart1($event)"  [height]="300" ></g2-custom>
       </nz-tab>
       <nz-tab [nzTitle]="'不同区域的关键参数'">
         <h2 class="text-center">不同区域发生的平均故障数</h2>
-        <g2-custom (render)="renderChart2($event)"  [height]="300"  [width]="'100%'"></g2-custom>
+        <g2-custom (render)="renderChart2($event)"  [height]="300"></g2-custom>
 <!--        <g2-timeline maxAxis="5" [data]="chartData" [slider]="false" [titleMap]="titleMap"-->
 <!--                     [height]="300"></g2-timeline>-->
       </nz-tab>
@@ -43,7 +43,7 @@
           </div>
         </div>
         <h2 class="text-center">故障发生数</h2>
-        <g2-custom (render)="renderChart3($event)"  [height]="300" [width]="'100%'"></g2-custom>
+        <g2-custom (render)="renderChart3($event)"  [height]="300"></g2-custom>
       </nz-tab>
     </nz-tabset>
   </nz-card>

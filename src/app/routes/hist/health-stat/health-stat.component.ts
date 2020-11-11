@@ -222,9 +222,9 @@ export class HealthStatComponent implements OnInit {
       shared: true,
     });
 
-    chart.legend({
-      title: '故障发生数'
-    });
+    // chart.legend({
+    //   'title': '故障发生数'
+    // });
 
     chart.line().position('year*value').label('value');
     chart.point().position('year*value');
@@ -232,4 +232,5 @@ export class HealthStatComponent implements OnInit {
     chart.render();
   }
 
+  onEquipChange(evt: any) {}
 }

@@ -31,6 +31,47 @@ export class InfraFailAnalysisComponent implements OnInit {
     console.log('Selected equipment: ', result);
   }
 
+  renderChart1(el: ElementRef<HTMLDivElement>): void {
+    this.ngZone.runOutsideAngular(() => this.drawChart(el.nativeElement));
+  }
+
+  private drawChart(el: HTMLElement): void {
+    const data = [
+      { year: '0:00', value: 0.3 },
+      { year: '4:00', value: 0.4 },
+      { year: '8:00', value: 0.5 },
+      { year: '12:00', value: 0.55 },
+      { year: '16:00', value: 0.1 },
+      { year: '20:00', value: 0.4 }
+    ];
+    const chart = new Chart({
+      container: el,
+      autoFit: true,
+      height: 500,
+    });
+
+    chart.data(data);
+    chart.scale({
+      year: {
+        range: [0, 1],
+      },
+      value: {
+        min: 0,
+        nice: true,
+      },
+    });
+
+    chart.tooltip({
+      showCrosshairs: true, // 展示 Tooltip 辅助线
+      shared: true,
+    });
+
+    chart.line().position('year*value').label('value');
+    chart.point().position('year*value');
+
+    chart.render();
+  }
+
   renderPie(el: ElementRef<HTMLDivElement>): void {
     this.ngZone.runOutsideAngular(() => this.initPie(el.nativeElement));
   }
